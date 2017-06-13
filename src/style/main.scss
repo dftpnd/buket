@@ -225,7 +225,7 @@ body {
   -webkit-overflow-scrolling: touch;
 
   &__about {
-
+    opacity: .4;
   }
 
   &__status {
@@ -302,6 +302,7 @@ body {
     margin-right: .8rem;
     margin-bottom: 1rem;
     display: inline-block;
+    opacity: .2;
   }
 }
 
