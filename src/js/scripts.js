@@ -156,5 +156,10 @@
         }
     }
 
-
+    ////////////////////////////////////
+    var close = document.getElementById('close');
+    var modal = document.getElementById('product-info');
+    close.addEventListener('click', function () {
+        modal.className += ' hidden';
+    });
 }());

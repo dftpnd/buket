@@ -99,10 +99,16 @@ body {
   @media (min-width: $size-l) {
     display: block;
   }
+  &__indent {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   &__panel {
     background-color: #2f313a;
     margin-bottom: 1rem;
-    padding: 1.5rem 0 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
     color: #f8f8f8;
   }
   &__link-button {
@@ -217,17 +223,27 @@ body {
   background-color: #26282f;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  //max-height:10rem;
 
   &__about {
 
+  }
+
+  &__status {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  &__indent {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   &__static {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding: 2rem 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 }
 
@@ -293,7 +309,6 @@ body {
   display: flex;
   justify-content: space-between;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .45);
-  padding: 1rem 0;
   margin-bottom: 2rem;
 
   &__item {
@@ -366,8 +381,7 @@ body {
   margin-bottom: 1rem;
   padding-right: 1rem;
 
-
-  &__photo{
+  &__photo {
     flex-shrink: 2;
     display: flex;
     align-items: center;
@@ -627,7 +641,7 @@ body {
   left: 0;
   z-index: 2;
   overflow: hidden;
-  //filter: blur(2px);
+
   @media (min-width: $size-l) {
     right: 17rem;
   }
@@ -683,6 +697,7 @@ body {
   &__demo {
     position: relative;
     padding-bottom: 7rem;
+    margin-left: $col-1;
   }
   &__meta {
     position: absolute;
@@ -698,6 +713,7 @@ body {
     background: #fff;
     position: relative;
     z-index: 1;
+    padding-left: $col-1;
     p {
       font-size: 16px;
       line-height: 24px;
@@ -747,4 +763,8 @@ body {
   &__photo {
     display: block;
   }
+}
+
+.hidden {
+  display: none;
 }
