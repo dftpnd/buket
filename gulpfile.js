@@ -24,7 +24,8 @@ gulp.task('scripts', function () {
         .pipe(uglify().on('error', function (e) {
             console.log(e);
         }))
-        .pipe(gulp.dest('./dist/'));
+        .pipe(gulp.dest('./dist/'))
+        .pipe(gulp.dest('./'));
 });
 
 gulp.task('sections', ['sass'], function () {
@@ -33,12 +34,14 @@ gulp.task('sections', ['sass'], function () {
     return gulp.src('./src/*.ejs')
         .pipe(ejs({criticalStyle: criticalStyle, version: version}, {}, {ext: '.html'}))
         .pipe(htmlmin({collapseWhitespace: true}))
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest('./dist'))
+        .pipe(gulp.dest('./'));
 });
 
 gulp.task('assets', function () {
     gulp.src(['./src/images/**/*'])
-        .pipe(gulp.dest('./dist/images'));
+        .pipe(gulp.dest('./dist/images'))
+        .pipe(gulp.dest('./images'));
 });
 
 gulp.task('watch', ['default'], function () {
