@@ -6,8 +6,8 @@
 }
 
 .pn-ProductNav_Wrapper {
-  display: flex;
-  align-items: flex-start;
+  //display: flex;
+  //align-items: flex-start;
   padding-top: 10px;
   margin-top: 1rem;
   position: relative;
@@ -43,9 +43,9 @@
   // Crush the whitespace here
   font-size: 0;
 
-  @media (min-width: 960px) {
-    overflow-x: hidden;
-  }
+  //@media (min-width: 960px) {
+  //  overflow-x: hidden;
+  //}
 }
 
 .pn-ProductNav {
@@ -58,7 +58,6 @@
 }
 
 .pn-ProductNav_Contents {
-  float: left;
   transition: transform .2s ease-in-out;
 }
 

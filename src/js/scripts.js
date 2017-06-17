@@ -156,10 +156,77 @@
         }
     }
 
+    function removeClass(obj, cls) {
+        var classes = obj.className.split(' ');
+
+        for (var i = 0; i < classes.length; i++) {
+            if (classes[i] == cls) {
+                classes.splice(i, 1); // удалить класс
+                i--; // (*)
+            }
+        }
+        obj.className = classes.join(' ');
+
+    }
+
+    function getScrollbarWidth() {
+        var outer = document.createElement("div");
+        outer.style.visibility = "hidden";
+        outer.style.width = "100px";
+        outer.style.msOverflowStyle = "scrollbar"; // needed for WinJS apps
+
+        document.body.appendChild(outer);
+
+        var widthNoScroll = outer.offsetWidth;
+        // force scrollbars
+        outer.style.overflow = "scroll";
+
+        // add innerdiv
+        var inner = document.createElement("div");
+        inner.style.width = "100%";
+        outer.appendChild(inner);
+
+        var widthWithScroll = inner.offsetWidth;
+
+        // remove divs
+        outer.parentNode.removeChild(outer);
+
+        return widthNoScroll - widthWithScroll;
+    }
+
     ////////////////////////////////////
+    var scrollbarWidth = getScrollbarWidth();
     var close = document.getElementById('close');
     var modal = document.getElementById('product-info');
+    var sidebar = document.getElementById('sidebar');
+
+
     close.addEventListener('click', function () {
-        modal.className += ' hidden';
+        removeClass(document.body, 'js-product-preview');
+        document.body.style.marginRight = '0';
     });
+
+
+    var menuLinks = [].slice.call(document.querySelectorAll('.js-set-title'));
+    var headerTitle = document.querySelectorAll('.js-header-title')[0];
+    var headerCount = document.querySelectorAll('.js-header-count')[0];
+
+    menuLinks.forEach(function (item, index) {
+        item.addEventListener('click', function () {
+            headerTitle.textContent = item.textContent;
+            headerCount.textContent = item.dataset.count;
+        });
+    });
+
+
+    /////////////////////
+    var showInfo = [].slice.call(document.querySelectorAll('.js-show-info'));
+    showInfo.forEach(function (item, index) {
+        item.addEventListener('click', function () {
+            document.body.className += ' js-product-preview';
+            document.body.style.marginRight = scrollbarWidth + 'px';
+        });
+    });
+
+
 }());
