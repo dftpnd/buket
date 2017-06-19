@@ -1,5 +1,6 @@
 @import "mix";
 @import "menu";
+@import "flickity";
 
 * {
   box-sizing: border-box;
@@ -21,30 +22,6 @@ html {
   'Arial',
   sans-serif;
 }
-
-//::-webkit-scrollbar {
-//  width: 9px;
-//}
-//
-//::-webkit-scrollbar-track {
-//  -webkit-border-radius: 5px;
-//  border-radius: 5px;
-//  background: rgba(0, 0, 0, 0.1);
-//}
-//
-//::-webkit-scrollbar-thumb {
-//  -webkit-border-radius: 5px;
-//  border-radius: 5px;
-//  background: rgba(0, 0, 0, 0.2);
-//}
-//
-//::-webkit-scrollbar-thumb:hover {
-//  background: rgba(0, 0, 0, 0.4);
-//}
-//
-//::-webkit-scrollbar-thumb:window-inactive {
-//  background: rgba(0, 0, 0, 0.05);
-//}
 
 body {
 
@@ -101,27 +78,39 @@ body {
 
 .sections {
   position: relative;
+  //max-width: 1000px;
   //padding: 0 1rem;
 
-  @media (min-width: $size-l) {
+  @media (min-width: $size-xl) {
     margin-right: 17rem;
   }
 }
 
 .sidebar {
-  display: none;
   width: 17rem;
   background: #22242b;
   flex-shrink: 0;
   position: fixed;
-  right: 0;
+  transition: .5s ease-in-out;
+  //right: 0;
   top: 0;
   bottom: 0;
   overflow-y: auto;
-  z-index: 1;
+  z-index: 11;
+  visibility: hidden;
+  right: -17rem;
 
-  @media (min-width: $size-l) {
-    display: block;
+  .js-hamburger-open & {
+    visibility: visible;
+    right: 0;
+  }
+  .ps__scrollbar-y-rail {
+    left: 0!important;;
+    right: auto!important;
+  }
+  @media (min-width: $size-xl) {
+    visibility: visible;
+    right: 0;
   }
 
   &__indent {
@@ -154,12 +143,20 @@ body {
   position: relative;
   background: url(images/bg.jpg) top center repeat;
   overflow: hidden;
-  padding: 10rem 1rem 1rem;
+  padding-top: 10rem;
+  //padding: 10rem 1rem 1rem;
 
   &__products {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    padding: 0 .5rem 1rem;
+    flex-direction: column;
+    //justify-content: space-between;
+
+    @media (min-width: $size-l) {
+      flex-direction: row;
+    }
   }
 }
 
@@ -168,11 +165,78 @@ body {
   //filter: blur(2px);
 }
 
+.hamburger {
+  width: 47px;
+  height: 36px;
+  flex-shrink: 0;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+
+  &.open {
+    margin-right: 17rem;
+  }
+
+  @media (min-width: $size-xl) {
+    display: none;
+  }
+
+  span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: #26282f;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+  }
+
+  span:nth-child(1) {
+    top: 0;
+  }
+
+  span:nth-child(2), span:nth-child(3) {
+    top: 18px;
+  }
+
+  span:nth-child(4) {
+    top: 36px;
+  }
+
+  &.open span:nth-child(1) {
+    top: 18px;
+    width: 0;
+    left: 50%;
+  }
+
+  &.open span:nth-child(2) {
+    transform: rotate(45deg);
+  }
+
+  &.open span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+
+  &.open span:nth-child(4) {
+    top: 18px;
+    width: 0;
+    left: 50%;
+  }
+}
+
 .header {
   position: fixed;
   left: 0;
   right: 0;
   z-index: 10;
+  padding: 1rem;
+  background-color: #fff;
+  border-bottom: 1px solid #f2f2f2;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.45);
 
   &__logo {
     display: none;
@@ -182,23 +246,16 @@ body {
     padding-right: .5rem;
   }
   &__top {
-    //display: flex;
-    //align-items: flex-start;
-    //flex-wrap: wrap;
-    //flex-direction: column;
+    //padding-top: 1rem;
+    //padding-bottom: 2rem;
 
-    background-color: #fff;
-    padding-top: 1rem;
-    padding-bottom: 2rem;
-
-    border-bottom: 1px solid #f2f2f2;
-    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.45);
   }
 
   &__title {
-    //flex: 1;
+    display: flex;
+    justify-content: space-between;
     margin: 1rem 0 -1rem;
-    padding-left: $col-1;
+
   }
 
   &__title-text {
@@ -207,7 +264,9 @@ body {
   &__type {
     margin: 0;
     white-space: nowrap;
-    //flex: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+
     font-weight: bold;
   }
 
@@ -225,18 +284,18 @@ body {
   &__group {
     //padding-top: 1rem;
     //padding-bottom: 1rem;
-    padding: 1rem;
+    //padding: 1rem;
     //margin: 1rem;
   }
 
-  @media (min-width: $size-l) {
+  @media (min-width: $size-xl) {
     margin-right: 17rem;
 
     &__logo {
       display: none;
     }
-    &__title {
-
+    &__top {
+      padding-left: $col-1;
     }
   }
 }
@@ -401,7 +460,10 @@ body {
   background: #fff;
   border-radius: 5px;
   display: flex;
-  margin-bottom: 1rem;
+  //width: 100%;
+  //flex: 40%;
+  flex-grow: 1;
+  margin: 1rem .5rem 0 .5rem;
   padding-right: 1rem;
 
   &__photo {
@@ -425,9 +487,10 @@ body {
     top: 15px;
   }
 
-  @media (min-width: $size-m) {
-    max-width: calc((100% / 12) * 6 - .5rem);
+  @media (min-width: $size-l) {
+    width: calc(50% - 1rem);
   }
+
 }
 
 .sale-icon {
@@ -586,12 +649,19 @@ body {
 }
 
 .filter {
-  padding: 4px;
-  border: 1px solid #eaeaea;
-  border-radius: 4px;
-  background-color: #fff;
-  display: table;
+  display: flex;
+  justify-content: center;
+
   margin: 2rem auto 3rem;
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 0 6px;
+  }
 
   &__field {
     height: 2rem;
@@ -600,10 +670,14 @@ body {
     background-color: #c7d5ec;
     border: none;
     text-align: center;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    //flex: 1;
 
     &:not(:last-child) {
       margin-right: 6px;
     }
+
   }
 }
 
@@ -800,22 +874,49 @@ body {
   z-index: 11;
   overflow: hidden;
 
-  @media (min-width: $size-l) {
-    right: 17rem;
+  &__carousel {
+    margin-left: calc((-100% / 12) * 1);
   }
+  &__slide {
+    width: 100%;
+    padding: 0 $col-1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    img {
+      max-width: 70%;
+      pointer-events: none;
+    }
+  }
   &__wrapper {
     position: absolute;
     top: 0;
-    left: 50%;
+    left: .5rem;
     bottom: 0;
-    right: 0;
+    right: .5rem;
     background: #fff;
     //overflow-y: scroll;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
+  }
+
+  @media (min-width: $size-m) {
+    &__wrapper {
+      left: 2rem;
+      right: 2rem;
+    }
+  }
+  @media (min-width: $size-l) {
+    &__wrapper {
+      left: 50%;
+      right: 0;
+    }
+  }
+  @media (min-width: $size-xl) {
+    right: 17rem;
   }
 
   &__title {
@@ -861,7 +962,7 @@ body {
   &__meta {
     position: absolute;
     left: 0;
-    top: 11rem;
+    top: 6rem;
   }
   &__shadow {
     box-shadow: 0px -1px 300px 40px rgba(83, 127, 255, .45);
@@ -926,4 +1027,8 @@ body {
 
 .hidden {
   display: none;
+}
+
+.custom-scroll {
+  height: 100%;
 }

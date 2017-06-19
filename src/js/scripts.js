@@ -203,7 +203,7 @@
 
     close.addEventListener('click', function () {
         removeClass(document.body, 'js-product-preview');
-        document.body.style.marginRight = '0';
+        // document.body.style.marginRight = '0';
     });
 
 
@@ -224,9 +224,38 @@
     showInfo.forEach(function (item, index) {
         item.addEventListener('click', function () {
             document.body.className += ' js-product-preview';
-            document.body.style.marginRight = scrollbarWidth + 'px';
+            // document.body.style.marginRight = scrollbarWidth + 'px';
         });
     });
+
+
+    // element argument can be a selector string
+    //   for an individual element
+    var flkty = new Flickity('.main-carousel', {
+        // cellAlign: 'left',
+        // contain: true
+    });
+
+    //hamburger
+    var hamburger = document.getElementById('hamburger');
+
+    hamburger.addEventListener('click', function () {
+        if (hamburger.classList.contains('open')) {
+            removeClass(document.body, 'js-hamburger-open');
+            removeClass(hamburger, 'open');
+        } else {
+            hamburger.className += ' open';
+            document.body.className += ' js-hamburger-open';
+        }
+
+    });
+
+    var container = document.getElementById('container');
+
+    var customScroll = [].slice.call(document.querySelectorAll('.custom-scroll'));
+    customScroll.forEach(function (el) {
+        Ps.initialize(el);
+    })
 
 
 }());

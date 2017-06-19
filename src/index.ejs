@@ -9,11 +9,12 @@
     <style><%- criticalStyle %></style>
     <!--<link rel="stylesheet" href="/style/grid-system.css">-->
     <link rel="icon" href="images/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.7.0/css/perfect-scrollbar.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Roboto:300,400i,900,900i&amp;subset=cyrillic"
           rel="stylesheet">
 </head>
-<body>
-<div class="wrapper" >
+<body class="custom-scroll">
+<div class="wrapper">
     <div class="sections">
         <header class="header">
             <div class="header__group header__top">
@@ -27,6 +28,12 @@
                             (<span class="js-header-count">567</span>)
                         </span>
                     </h1>
+                    <div id="hamburger" class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </section>
                 <div class="pn-ProductNav_Wrapper">
                     <nav id="pnProductNav" class="pn-ProductNav">
@@ -85,24 +92,26 @@
             </div>
         </header>
         <section id="content" class="content">
-            <div class="filter">
-                <select class="filter__field">
-                    <option value="1">до 30 см</option>
-                </select>
-                <select class="filter__field">
-                    <option value="1">от 3000 руб</option>
-                </select>
-                <select class="filter__field">
-                    <option value="1">по популярности</option>
-                </select>
+            <form class="filter">
+                <div class="filter__wrapper">
+                    <select class="filter__field">
+                        <option value="1">до 30 см</option>
+                    </select>
+                    <select class="filter__field">
+                        <option value="1">от 3000 руб</option>
+                    </select>
+                    <select class="filter__field">
+                        <option value="1">по популярности</option>
+                    </select>
 
-                <select class="filter__field">
-                    <option value="">Акции</option>
-                    <option value="">Розы</option>
-                    <option value="">Конусы</option>
-                    <option value="">Бизнес букеты</option>
-                </select>
-            </div>
+                    <select class="filter__field">
+                        <option value="">Акции</option>
+                        <option value="">Розы</option>
+                        <option value="">Конусы</option>
+                        <option value="">Бизнес букеты</option>
+                    </select>
+                </div>
+            </form>
             <div class="content__products">
                 <article class="product">
                     <aside class="product__photo">
@@ -321,11 +330,12 @@
             </section>
         </footer>
     </div>
-    <section id="sidebar" class="sidebar">
+    <section id="sidebar" class="sidebar custom-scroll">
         <a href="" class="sidebar__logo">
             <img src="images/logo.png" alt="Букет столицы">
         </a>
         <div class="field sidebar__indent">
+            <div class="field__label">Телефона: 555-66-77</div>
             <div class="field__label">Место доставки:</div>
             <div class="field__select">
                 <a href="" class="field__link">Казань</a>
@@ -385,15 +395,31 @@
         </nav>
     </section>
 </div>
-<div class="product-info" id="product-info" >
+<div class="product-info" id="product-info">
     <div class="product-info__wrapper">
         <div class="product-info__header">
             <h1 class="product-info__title">Ваш заказ</h1>
             <a id="close" role="button" class="product-info__close">close</a>
         </div>
-        <div class="product-info__view">
+        <div class="product-info__view custom-scroll">
             <div class="product-info__demo">
-                <img class="product-info__photo" src="images/product-full.jpg" alt="Букет «сладкие сны»">
+                <div class="product-info__carousel">
+                    <div class="main-carousel">
+                        <div class="carousel-cell product-info__slide">
+                            <img class="product-info__photo" src="images/products/flowers-1.jpg"
+                                 alt="Букет «сладкие сны»">
+                        </div>
+                        <div class="carousel-cell product-info__slide">
+                            <img class="product-info__photo" src="images/products/flowers-2.jpg"
+                                 alt="Букет «сладкие сны»">
+                        </div>
+                        <div class="carousel-cell product-info__slide">
+                            <img class="product-info__photo" src="images/products/flowers-3.jpg"
+                                 alt="Букет «сладкие сны»">
+                        </div>
+                    </div>
+                </div>
+
                 <div class="product-info__meta meta">
                     <div class="meta__title">Сладкие сны</div>
                     <ul class="meta__stars stars">
@@ -414,7 +440,7 @@
                             2500
                         </span>
                     </h3>
-                    <button class="meta__add" type="button">1&thinsp;500</button>
+
                     <p class="meta__advantages">
                         Цена с доставкой и <br>
                         подарочной открыткой!
@@ -461,6 +487,17 @@
     </div>
 </div>
 
+
+<script defer src="flickity.pkgd.min.js?<%- version %>"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.7.0/js/perfect-scrollbar.min.js"></script>
 <script defer src="scripts.js?<%- version %>"></script>
+
 </body>
 </html>
+
+<div class="box6">
+    <a href="register.html">Редактировать профиль</a>
+</div>
+
+
+<a class="box6" href="register.html">Редактировать профиль</a>

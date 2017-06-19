@@ -11,8 +11,9 @@
   padding-top: 10px;
   margin-top: 1rem;
   position: relative;
-  max-width: $col-11;
-  margin-left: $col-1;
+  margin-right: -1rem;
+  //max-width: $col-11;
+  //margin-left: $col-1;
 
   //@media (min-width: $size-l) {
   //  margin-left: 0;
@@ -95,6 +96,7 @@
 .pn-Advancer {
   /* Reset the button */
   appearance: none;
+  height: 40px;
   background: transparent;
   padding: 0;
   border: 0;
@@ -114,7 +116,7 @@
 }
 
 .pn-Advancer_Left {
-  left: 0;
+  left: -3px;
   [data-overflowing="both"] ~ &,
   [data-overflowing="left"] ~ & {
     opacity: 1;
@@ -122,7 +124,7 @@
 }
 
 .pn-Advancer_Right {
-  right: 0;
+  right: -3px;
   [data-overflowing="both"] ~ &,
   [data-overflowing="right"] ~ & {
     opacity: 1;
