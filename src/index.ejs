@@ -9,11 +9,12 @@
     <style><%- criticalStyle %></style>
     <!--<link rel="stylesheet" href="/style/grid-system.css">-->
     <link rel="icon" href="images/logo.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.7.0/css/perfect-scrollbar.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.7.0/css/perfect-scrollbar.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Roboto:300,400i,900,900i&amp;subset=cyrillic"
           rel="stylesheet">
 </head>
-<body >
+<body>
 <div class="wrapper">
     <div class="sections">
         <header class="header">
@@ -28,16 +29,14 @@
                             (<span class="js-header-count">567</span>)
                         </span>
                     </h1>
-                    <div id="hamburger" class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+                    <a role="button" class="basket-icon" id="basket">Корзина</a>
                 </section>
                 <div class="pn-ProductNav_Wrapper">
                     <nav id="pnProductNav" class="pn-ProductNav">
                         <div id="pnProductNavContents" class="pn-ProductNav_Contents">
+                            <a href="#1" aria-selected="true" class="pn-ProductNav_Link js-set-title" data-count="543">Букеты
+                                цветов</a>
+                            <span class="braker"></span>
                             <a href="#1" class="pn-ProductNav_Link js-set-title" data-count="234">Цветочные
                                 композиции</a>
                             <span class="braker"></span>
@@ -113,9 +112,9 @@
                 </div>
             </form>
             <div class="content__products">
-                <article class="product">
+                <article class="product product__type-select">
                     <aside class="product__photo">
-                        <img src="images/products/flowers-1.jpg" alt="Сладкие сны"/>
+                        <img class="js-show-info" src="images/products/flowers-1.jpg" alt="Сладкие сны"/>
                         <div class="product__sale sale-icon sale-icon__type-red">
                             <div class="sale-icon__value">
                                 −40<span class="sale-icon__percentages">%</span>
@@ -124,7 +123,7 @@
                         </div>
                     </aside>
                     <aside class="product__description meta">
-                        <div class="meta__title">Сладкие сны</div>
+                        <div class="meta__title js-show-info">Сладкие сны</div>
                         <ul class="meta__stars stars">
                             <li class="stars__item"></li>
                             <li class="stars__item active"></li>
@@ -132,7 +131,7 @@
                             <li class="stars__item"></li>
                             <li class="stars__item"></li>
                         </ul>
-                        <a class="meta__review" href="">34 отзыва</a>
+                        <a class="meta__review js-show-info">34 отзыва</a>
                         <p class="meta__info">
                             Букет № 3478 <br>
                             Ширина: 30 см. <br>
@@ -143,17 +142,22 @@
                             2500
                         </span>
                         </h3>
-                        <button class="meta__add js-show-info" type="button">1&thinsp;500</button>
+                        <button class="meta__add js-add-product" type="button">1&thinsp;500</button>
                         <p class="meta__advantages">
                             Цена с доставкой и <br>
                             подарочной открыткой!
                         </p>
-
                     </aside>
+                    <div class="product__select selected-product">
+                        <h2 class="selected-product__title">Отличный выбор!</h2>
+                        <span class="selected-product__basket">Вы добавили товар в корзину</span>
+                        <a class="selected-product__order" role="button">Оформить заказ и доставку</a>
+                        <a class="selected-product__postcard" role="button">Подобрать открытку</a>
+                    </div>
                 </article>
                 <article class="product">
                     <aside class="product__photo">
-                        <img src="images/products/flowers-2.jpg" alt="Сладкие сны"/>
+                        <img class="js-show-info" src="images/products/flowers-2.jpg" alt="Сладкие сны"/>
                         <div class="product__sale sale-icon sale-icon__type-black">
                             <div class="sale-icon__value">
                                 −40<span class="sale-icon__percentages">%</span>
@@ -162,7 +166,7 @@
                         </div>
                     </aside>
                     <aside class="product__description meta">
-                        <div class="meta__title">Сладкие сны</div>
+                        <div class="meta__title js-show-info">Сладкие сны</div>
                         <ul class="meta__stars stars">
                             <li class="stars__item"></li>
                             <li class="stars__item active"></li>
@@ -170,7 +174,7 @@
                             <li class="stars__item"></li>
                             <li class="stars__item"></li>
                         </ul>
-                        <a class="meta__review" href="">34 отзыва</a>
+                        <a class="meta__review js-show-info">34 отзыва</a>
                         <p class="meta__info">
                             Букет № 3478 <br>
                             Ширина: 30 см. <br>
@@ -181,17 +185,16 @@
                             2500
                         </span>
                         </h3>
-                        <button class="meta__add js-show-info" type="button">1&thinsp;500</button>
+                        <button class="meta__add js-add-product" type="button">1&thinsp;500</button>
                         <p class="meta__advantages">
                             Цена с доставкой и <br>
                             подарочной открыткой!
                         </p>
-
                     </aside>
                 </article>
                 <article class="product">
                     <aside class="product__photo">
-                        <img src="images/products/flowers-3.jpg" alt="Сладкие сны"/>
+                        <img class="js-show-info" src="images/products/flowers-3.jpg" alt="Сладкие сны"/>
                         <div class="product__sale sale-icon sale-icon__type-black">
                             <div class="sale-icon__value">
                                 −40<span class="sale-icon__percentages">%</span>
@@ -200,7 +203,7 @@
                         </div>
                     </aside>
                     <aside class="product__description meta">
-                        <div class="meta__title">Сладкие сны</div>
+                        <div class="meta__title js-show-info">Сладкие сны</div>
                         <ul class="meta__stars stars">
                             <li class="stars__item"></li>
                             <li class="stars__item active"></li>
@@ -208,7 +211,7 @@
                             <li class="stars__item"></li>
                             <li class="stars__item"></li>
                         </ul>
-                        <a class="meta__review" href="">34 отзыва</a>
+                        <a class="meta__review js-show-info">34 отзыва</a>
                         <p class="meta__info">
                             Букет № 3478 <br>
                             Ширина: 30 см. <br>
@@ -219,7 +222,7 @@
                             2500
                         </span>
                         </h3>
-                        <button class="meta__add js-show-info" type="button">1&thinsp;500</button>
+                        <button class="meta__add js-add-product" type="button">1&thinsp;500</button>
                         <p class="meta__advantages">
                             Цена с доставкой и <br>
                             подарочной открыткой!
@@ -229,7 +232,7 @@
                 </article>
                 <article class="product">
                     <aside class="product__photo">
-                        <img src="images/products/flowers-4.jpg" alt="Сладкие сны"/>
+                        <img class="js-show-info" src="images/products/flowers-4.jpg" alt="Сладкие сны"/>
                         <div class="product__sale sale-icon sale-icon__type-light-black">
                             <div class="sale-icon__value">
                                 −10<span class="sale-icon__percentages">%</span>
@@ -238,7 +241,7 @@
                         </div>
                     </aside>
                     <aside class="product__description meta">
-                        <div class="meta__title">Сладкие сны</div>
+                        <div class="meta__title js-show-info">Сладкие сны</div>
                         <ul class="meta__stars stars">
                             <li class="stars__item"></li>
                             <li class="stars__item active"></li>
@@ -246,7 +249,7 @@
                             <li class="stars__item"></li>
                             <li class="stars__item"></li>
                         </ul>
-                        <a class="meta__review" href="">34 отзыва</a>
+                        <a class="meta__review js-show-info">34 отзыва</a>
                         <p class="meta__info">
                             Букет № 3478 <br>
                             Ширина: 30 см. <br>
@@ -257,7 +260,7 @@
                             2500
                         </span>
                         </h3>
-                        <button class="meta__add js-show-info" type="button">1&thinsp;500</button>
+                        <button class="meta__add js-add-product" type="button">1&thinsp;500</button>
                         <p class="meta__advantages">
                             Цена с доставкой и <br>
                             подарочной открыткой!
@@ -330,12 +333,12 @@
             </section>
         </footer>
     </div>
-    <section id="sidebar" class="sidebar custom-scroll" >
+    <section id="sidebar" class="sidebar custom-scroll">
         <a href="" class="sidebar__logo">
             <img src="images/logo.png" alt="Букет столицы">
         </a>
         <div class="field sidebar__indent">
-            <div class="field__label">Телефона: 555-66-77</div>
+            <div class="field__label">Телефон: 777-77-77</div>
             <div class="field__label">Место доставки:</div>
             <div class="field__select">
                 <a href="" class="field__link">Казань</a>
@@ -345,20 +348,24 @@
             <div class="panel__title">
                 Вы выбрали:
             </div>
-            <div class="basket">
-                <div class="basket__demo">
-                    <img src="images/products-demo.png" alt="Букет №0456">
+            <div>
+                <div id="basket-wrapper">
+                    <div id="basket" class="basket append">
+                        <div class="basket__demo">
+                            <img src="images/products-demo.png" alt="Букет №0456">
+                        </div>
+                        <div class="basket__info">
+                            <div class="basket__name">Букет №0456</div>
+                            <div class="basket__price">1&thinsp;450&nbsp;₽</div>
+                            <a class="basket__clean-this" href="#">Убрать из корзины</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="basket__info">
-                    <div class="basket__name">Букет №0456</div>
-                    <div class="basket__price">1&thinsp;450&nbsp;₽</div>
-                    <a class="basket__clean-this" href="#">Убрать из корзины</a>
+                <button class="basket__button">Оформите заказ</button>
+                <div class="basket__desc">
+                    Ближайшее время <br>
+                    доставки в 14:40
                 </div>
-            </div>
-            <button class="basket__button">Оформите заказ</button>
-            <div class="basket__desc">
-                Ближайшее время <br>
-                доставки в 14:40
             </div>
         </div>
         <div class="sidebar__panel panel sidebar__indent">
@@ -440,7 +447,7 @@
                             2500
                         </span>
                     </h3>
-
+                    <button class="meta__add  js-add-product" type="button">1&thinsp;500</button>
                     <p class="meta__advantages">
                         Цена с доставкой и <br>
                         подарочной открыткой!
@@ -478,8 +485,7 @@
                             Ширина: 30 см. <br>
                             Высота: 25 см.
                         </p>
-
-                        <button class="meta__add" type="button">1&thinsp;500</button>
+                        <button class="meta__add  js-add-product" type="button">1&thinsp;500</button>
                     </div>
                 </section>
             </div>

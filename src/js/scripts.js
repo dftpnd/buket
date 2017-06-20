@@ -203,7 +203,7 @@
 
     close.addEventListener('click', function () {
         removeClass(document.body, 'js-product-preview');
-        // document.body.style.marginRight = '0';
+        document.body.style.marginRight = '0';
     });
 
 
@@ -224,7 +224,7 @@
     showInfo.forEach(function (item, index) {
         item.addEventListener('click', function () {
             document.body.className += ' js-product-preview';
-            // document.body.style.marginRight = scrollbarWidth + 'px';
+            document.body.style.marginRight = scrollbarWidth + 'px';
         });
     });
 
@@ -237,14 +237,14 @@
     });
 
     //hamburger
-    var hamburger = document.getElementById('hamburger');
+    var basket = document.getElementById('basket');
 
-    hamburger.addEventListener('click', function () {
-        if (hamburger.classList.contains('open')) {
+    basket.addEventListener('click', function () {
+        if (basket.classList.contains('open')) {
             removeClass(document.body, 'js-hamburger-open');
-            removeClass(hamburger, 'open');
+            removeClass(basket, 'open');
         } else {
-            hamburger.className += ' open';
+            basket.className += ' open';
             document.body.className += ' js-hamburger-open';
         }
 
@@ -256,6 +256,18 @@
     customScroll.forEach(function (el) {
         Ps.initialize(el);
     })
+
+    //////////////
+
+    var addProduct = [].slice.call(document.querySelectorAll('.js-add-product'));
+    addProduct.forEach(function (item, index) {
+        item.addEventListener('click', function () {
+            var itm = document.getElementById('basket');
+            var cln = itm.cloneNode(true);
+            document.getElementById('basket-wrapper').appendChild(cln);
+            //////////
+        });
+    });
 
 
 }());
