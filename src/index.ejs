@@ -20,7 +20,7 @@
         <header class="header">
             <div class="header__group header__top">
                 <a href="" class="header__logo">
-                    <img src="images/logo.png" alt="Букет столицы">
+                    <img class="lazy" data-src="images/logo.png" alt="Букет столицы">
                 </a>
                 <section class="header__title">
                     <h1 class="header__type">
@@ -90,7 +90,7 @@
                 </div>
             </div>
         </header>
-        <section id="content" class="content">
+        <section id="content" class="content content__loading">
             <form class="filter">
                 <div class="filter__wrapper">
                     <select class="filter__field">
@@ -114,7 +114,7 @@
             <div class="content__products">
                 <article class="product product__type-select">
                     <aside class="product__photo">
-                        <img class="js-show-info" src="images/products/flowers-1.jpg" alt="Сладкие сны"/>
+                        <img class="js-show-info lazy" data-src="images/products/flowers-1.jpg" alt="Сладкие сны"/>
                         <div class="product__sale sale-icon sale-icon__type-red">
                             <div class="sale-icon__value">
                                 −40<span class="sale-icon__percentages">%</span>
@@ -157,7 +157,7 @@
                 </article>
                 <article class="product">
                     <aside class="product__photo">
-                        <img class="js-show-info" src="images/products/flowers-2.jpg" alt="Сладкие сны"/>
+                        <img class="js-show-info lazy" data-src="images/products/flowers-2.jpg" alt="Сладкие сны"/>
                         <div class="product__sale sale-icon sale-icon__type-black">
                             <div class="sale-icon__value">
                                 −40<span class="sale-icon__percentages">%</span>
@@ -194,7 +194,7 @@
                 </article>
                 <article class="product">
                     <aside class="product__photo">
-                        <img class="js-show-info" src="images/products/flowers-3.jpg" alt="Сладкие сны"/>
+                        <img class="js-show-info lazy" data-src="images/products/flowers-3.jpg" alt="Сладкие сны"/>
                         <div class="product__sale sale-icon sale-icon__type-black">
                             <div class="sale-icon__value">
                                 −40<span class="sale-icon__percentages">%</span>
@@ -232,7 +232,7 @@
                 </article>
                 <article class="product">
                     <aside class="product__photo">
-                        <img class="js-show-info" src="images/products/flowers-4.jpg" alt="Сладкие сны"/>
+                        <img class="js-show-info lazy" data-src="images/products/flowers-4.jpg" alt="Сладкие сны"/>
                         <div class="product__sale sale-icon sale-icon__type-light-black">
                             <div class="sale-icon__value">
                                 −10<span class="sale-icon__percentages">%</span>
@@ -284,7 +284,7 @@
                     <div class="status__row">Ваш менеджер:</div>
                     <div class="status__manager">
                         <div class="status__manager-photo">
-                            <img src="images/manager.png" alt="Жуков Дмитрий">
+                            <img data-src="images/manager.png" class="lazy" alt="Жуков Дмитрий">
                         </div>
                         <div class="status__desc">
                             <div class="status__row">Жуков <br> Дмитрий</div>
@@ -335,7 +335,7 @@
     </div>
     <section id="sidebar" class="sidebar custom-scroll">
         <a href="" class="sidebar__logo">
-            <img src="images/logo.png" alt="Букет столицы">
+            <img data-src="images/logo.png" class="lazy" alt="Букет столицы">
         </a>
         <div class="field sidebar__indent">
             <div class="field__label">Телефон: 777-77-77</div>
@@ -352,7 +352,7 @@
                 <div id="basket-wrapper">
                     <div id="basket" class="basket append">
                         <div class="basket__demo">
-                            <img src="images/products-demo.png" alt="Букет №0456">
+                            <img data-src="images/products-demo.png" class="lazy" alt="Букет №0456">
                         </div>
                         <div class="basket__info">
                             <div class="basket__name">Букет №0456</div>
@@ -375,7 +375,7 @@
 
             <div class="manager">
                 <div class="manager__photo">
-                    <img src="images/manager.png" alt="Дмитрий Жуков">
+                    <img data-src="images/manager.png" class="lazy" alt="Дмитрий Жуков">
                 </div>
                 <div class="manager__info">
                     <div class="manager__status">на связи</div>
@@ -413,15 +413,15 @@
                 <div class="product-info__carousel">
                     <div class="main-carousel">
                         <div class="carousel-cell product-info__slide">
-                            <img class="product-info__photo" src="images/products/flowers-1.jpg"
+                            <img class="product-info__photo lazy" data-src="images/products/flowers-1.jpg"
                                  alt="Букет «сладкие сны»">
                         </div>
                         <div class="carousel-cell product-info__slide">
-                            <img class="product-info__photo" src="images/products/flowers-2.jpg"
+                            <img class="product-info__photo lazy" data-src="images/products/flowers-2.jpg"
                                  alt="Букет «сладкие сны»">
                         </div>
                         <div class="carousel-cell product-info__slide">
-                            <img class="product-info__photo" src="images/products/flowers-3.jpg"
+                            <img class="product-info__photo lazy" data-src="images/products/flowers-3.jpg"
                                  alt="Букет «сладкие сны»">
                         </div>
                     </div>
@@ -494,9 +494,11 @@
 </div>
 
 
-<script src="flickity.pkgd.min.js?<%- version %>"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.7.0/js/perfect-scrollbar.min.js"></script>
-<script src="scripts.js?<%- version %>"></script>
+<script async src="lazyload.js?<%- version %>"></script>
+<script defer src="flickity.pkgd.min.js?<%- version %>"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.7.0/js/perfect-scrollbar.min.js"></script>
+<script defer src="scripts.js?<%- version %>"></script>
+
 
 </body>
 </html>

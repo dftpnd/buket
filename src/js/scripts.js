@@ -262,8 +262,11 @@
     var addProduct = [].slice.call(document.querySelectorAll('.js-add-product'));
     addProduct.forEach(function (item, index) {
         item.addEventListener('click', function () {
+
             var itm = document.getElementById('basket');
             var cln = itm.cloneNode(true);
+
+
             document.getElementById('basket-wrapper').appendChild(cln);
             //////////
         });
